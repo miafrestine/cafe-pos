@@ -1,0 +1,45 @@
+.sa-tooltip {
+  min-width: 132px;
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #1c1917;
+  color: #fff;
+  font-size: 11px;
+  line-height: 1.4;
+  white-space: nowrap;
+  box-shadow: 0 8px 20px rgb(28 25 23 / 25%);
+}
+
+.sa-tooltip strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.sa-tooltip span {
+  display: block;
+  color: #d6d3d1;
+}
+
+.sa-tooltip-pop {
+  animation: sa-tooltip-in 140ms ease-out;
+}
+
+@keyframes sa-tooltip-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sa-tooltip-pop {
+    animation: none;
+  }
+}

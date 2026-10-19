@@ -1,0 +1,12 @@
+.sidebar-category-label {
+	writing-mode: vertical-rl;
+	transform: rotate(180deg);
+}
+
+.scrollbar-none {
+	scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+	display: none;
+}
