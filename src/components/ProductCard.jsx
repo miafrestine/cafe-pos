@@ -77,7 +77,9 @@ export default function ProductCard({
               aria-label={`${modifierOn ? 'Remove' : 'Add'} ${modifier.label} for ${product.name}`}
               title={`${modifier.label} (+${peso(modifier.price)})`}
             >
-              {modifierOn ? '✓' : '+'}
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                {modifierOn ? <path d="M5 13l4 4L19 7" /> : <path d="M12 5v14M5 12h14" />}
+              </svg>
             </button>
           </div>
         )}

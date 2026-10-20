@@ -39,6 +39,7 @@
   display: grid;
   width: 32px;
   height: 32px;
+  padding: 0;
   place-items: center;
   border: 0;
   border-radius: 50%;
@@ -58,6 +59,7 @@
 }
 
 .product-card__add svg {
+  display: block;
   width: 16px;
   height: 16px;
 }
@@ -161,6 +163,7 @@
   display: grid;
   width: 20px;
   height: 20px;
+  padding: 0;
   flex: none;
   place-items: center;
   border: 1px solid #d1d5db;
@@ -168,6 +171,12 @@
   background: transparent;
   color: #6b7280;
   cursor: pointer;
+}
+
+.product-card__modifier svg {
+  display: block;
+  width: 10px;
+  height: 10px;
 }
 
 .product-card__modifier:hover {
