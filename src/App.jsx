@@ -64,15 +64,15 @@ export default function App() {
   const [activeSubCat, setActiveSubCat] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Selected size per product (defaults to Tall)
+  // Selected size per product (defaults to Small)
   const [productSizes, setProductSizes] = useState({});
 
   // Active Cart / Ticket state.
   // `key` identifies what an item is (product + size, or product add-on) so identical items stack.
   const [cart, setCart] = useState([
-    { id: 101, key: '1-Tall', productId: 1, name: 'Espresso', price: 2.6, quantity: 1, image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200&auto=format&fit=crop&q=80' },
-    { id: 102, key: 'mod-1', productId: 1, name: 'Plant Milk · Espresso', price: 1.0, quantity: 2, image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200&auto=format&fit=crop&q=80' },
-    { id: 103, key: '2-Tall', productId: 2, name: 'Cold Brew', price: 2.9, quantity: 1, image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&auto=format&fit=crop&q=80' },
+    { id: 101, key: '1-Small', productId: 1, name: 'Espresso', price: 125, quantity: 1, image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200&auto=format&fit=crop&q=80' },
+    { id: 102, key: 'mod-1', productId: 1, name: 'Plant Milk · Espresso', price: 35, quantity: 2, image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200&auto=format&fit=crop&q=80' },
+    { id: 103, key: '2-Small', productId: 2, name: 'Cold Brew', price: 145, quantity: 1, image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=200&auto=format&fit=crop&q=80' },
   ]);
   const cartIdRef = useRef(200);
   const nextCartId = () => {
@@ -202,9 +202,9 @@ export default function App() {
   };
 
   const addToCart = (product) => {
-    const size = product.category === 'coffee' ? (productSizes[product.id] || 'Tall') : null;
+    const size = product.category === 'coffee' ? (productSizes[product.id] || 'Small') : null;
     const unitPrice = product.price + (size ? SIZE_UPCHARGES[size] ?? 0 : 0);
-    const itemName = size && size !== 'Tall' ? `${product.name} (${size})` : product.name;
+    const itemName = size && size !== 'Small' ? `${product.name} (${size})` : product.name;
     const key = size ? `${product.id}-${size}` : `${product.id}`;
     const newId = nextCartId();
 
@@ -356,7 +356,7 @@ export default function App() {
     <ProductCard
       key={product.id}
       product={product}
-      currentSize={productSizes[product.id] || 'Tall'}
+      currentSize={productSizes[product.id] || 'Small'}
       modifierOn={cart.some((i) => i.key === `mod-${product.id}`)}
       onAdd={addToCart}
       onModifierToggle={handleModifierToggle}

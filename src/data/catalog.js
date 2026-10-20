@@ -7,14 +7,17 @@ export const MAIN_CATEGORIES = [
   { id: 'dessert', label: 'Dessert' },
 ];
 
-export const SIZES = ['Tall', 'Grande', 'Venti'];
+export const SIZES = ['Small', 'Medium', 'Large'];
 
-// Added to a coffee's base price for each size. Set every value to 0 to turn size pricing off.
-export const SIZE_UPCHARGES = { Tall: 0, Grande: 0.5, Venti: 0.8 };
+// Prices are in pesos, based on the Coffee Bean & Tea Leaf PH January 2025 menu. A coffee's `price`
+// is its Small price; these amounts are added for the bigger cups. Medium is the menu's "Regular".
+// On the menu, Regular is +20 and Large is +50 over Small for the espresso and latte drinks.
+// Set every value to 0 to turn size pricing off.
+export const SIZE_UPCHARGES = { Small: 0, Medium: 20, Large: 50 };
 
 // The one add-on offered on each product card, and what it costs.
 export function getModifier(product) {
-  if (product.hasPlantMilkOption) return { label: 'Plant Milk', price: 1.0 };
+  if (product.hasPlantMilkOption) return { label: 'Plant Milk', price: 35 };
   if (product.category === 'tea' || product.category === 'juice') return { label: 'Extra Ice', price: 0.5 };
   return { label: 'Warm Up', price: 0.5 };
 }
@@ -29,17 +32,17 @@ export const SUB_CATEGORIES_MAP = {
 };
 
 export const PRODUCTS = [
-  { id: 1, name: 'Espresso', price: 2.6, subCat: 'Espresso', category: 'coffee', image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 2, name: 'Cold Brew', price: 2.9, subCat: 'Espresso', category: 'coffee', image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 3, name: 'Cinnamon Latte', price: 3.7, subCat: 'Latte', category: 'coffee', image: 'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 4, name: 'Cappuccino', price: 2.7, subCat: 'Cappuccino', category: 'coffee', image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 5, name: 'White Mocha', price: 4.3, subCat: 'Mocha', category: 'coffee', image: 'https://images.unsplash.com/photo-1530373239216-42518e6b4039?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 6, name: 'Hazelnut Latte', price: 5.3, subCat: 'Latte', category: 'coffee', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 7, name: 'Caramel Macchiato', price: 4.6, subCat: 'Macchiato', category: 'coffee', image: 'https://images.unsplash.com/photo-1485808191679-edf8637cb6a9?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 8, name: 'Earl Grey Infusion', price: 3.2, subCat: 'Hot Teas', category: 'tea', image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
-  { id: 9, name: 'Iced Jasmine Green', price: 3.5, subCat: 'Iced Teas', category: 'tea', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
+  { id: 1, name: 'Espresso', price: 125, subCat: 'Espresso', category: 'coffee', image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 2, name: 'Cold Brew', price: 145, subCat: 'Espresso', category: 'coffee', image: 'https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 3, name: 'Cinnamon Latte', price: 175, subCat: 'Latte', category: 'coffee', image: 'https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 4, name: 'Cappuccino', price: 145, subCat: 'Cappuccino', category: 'coffee', image: 'https://images.unsplash.com/photo-1534778101976-62847782c213?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 5, name: 'White Mocha', price: 175, subCat: 'Mocha', category: 'coffee', image: 'https://images.unsplash.com/photo-1530373239216-42518e6b4039?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 6, name: 'Hazelnut Latte', price: 175, subCat: 'Latte', category: 'coffee', image: 'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 7, name: 'Caramel Macchiato', price: 185, subCat: 'Macchiato', category: 'coffee', image: 'https://images.unsplash.com/photo-1485808191679-edf8637cb6a9?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 8, name: 'Earl Grey Infusion', price: 175, subCat: 'Hot Teas', category: 'tea', image: 'https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
+  { id: 9, name: 'Iced Jasmine Green', price: 175, subCat: 'Iced Teas', category: 'tea', image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
   { id: 10, name: 'Brown Sugar Boba Milk', price: 4.8, subCat: 'Milk Teas / Boba', category: 'tea', image: 'https://images.unsplash.com/photo-1541658016709-82535e94bc69?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
-  { id: 13, name: 'Matcha Green Latte', price: 4.5, subCat: 'Specialty Lattes', category: 'tea', image: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
+  { id: 13, name: 'Matcha Green Latte', price: 195, subCat: 'Specialty Lattes', category: 'tea', image: 'https://images.unsplash.com/photo-1536256263959-770b48d82b0a?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: true },
   { id: 14, name: 'Fresh Orange Juice', price: 4.0, subCat: 'Classic Fruit', category: 'juice', image: 'https://images.unsplash.com/photo-1613478223719-2ab802602423?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
   { id: 15, name: 'Apple Lychee Blend', price: 4.8, subCat: 'Classic Fruit', category: 'juice', image: 'https://images.unsplash.com/photo-1589733955941-5eeaf752f6dd?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false },
   { id: 21, name: 'Avocado Sourdough Toast', price: 7.5, subCat: 'Sandwiches & Wraps', category: 'meal', image: 'https://images.unsplash.com/photo-1588137378633-dea1336ce1e2?w=500&auto=format&fit=crop&q=80', hasPlantMilkOption: false, tags: ['🌱 Vegan', '⏱️ Grab & Go'] },

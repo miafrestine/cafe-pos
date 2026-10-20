@@ -4,7 +4,7 @@ import { peso } from '../utils/money.js';
 
 export default function ProductCard({
   product,
-  currentSize = 'Tall',
+  currentSize = 'Small',
   modifierOn = false,
   onAdd,
   onModifierToggle,
